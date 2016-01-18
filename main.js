@@ -23,7 +23,7 @@ function initialize() {
   });
 
   // Initial villages border
-  $.getJSON('/data/cunli.json', function(data) {
+  $.getJSON('data/cunli.json', function(data) {
     var geoJson = topojson.feature(data, data.objects.cunli);
     // geoJson.features = geoJson.features.filter(function(item){
     //   return item.properties.C_Name === '高雄市';
