@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>台灣 2016 各地區政黨比例地圖</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map-canvas {
+      height: 100%;
+      width: 100%;
+    }
+
+    #histogram {
+      height: 40%;
+      width: 100%;
+      min-height: 300px;
+    }
+
+    #myTabContent {
+      height: 85%;
+      width: 100%;
+      min-height: 300px;
+    }
+
+    #title {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .colorBox {
+      width: 1em;
+      height: 1em;
+      border: 1px solid #34495E;
+      display: inline-block;
+      margin: 0 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1>2016 立委票數分布</h1>
+      <div id="detail" class="col-md-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            選擇顯示黨別
+            <div class="btn-group party-button-list">
+              <a href="#" class="btn btn-default active"
+                 onclick="drawMap('中國國民黨', 'blue');return false">中國國民黨</a>
+              <a href="#" class="btn btn-default"
+                 onclick="drawMap('民主進步黨', 'green');return false">民主進步黨</a>
+              <a href="#" class="btn btn-default"
+                 onclick="drawMap('時代力量', 'yellow');return false">時代力量</a>
+              <a href="#" class="btn btn-default"
+                 onclick="drawMap('親民黨', 'orange');return false">親民黨</a>
+              <a href="#" class="btn btn-default"
+                 onclick="drawMap('綠黨社會民主黨聯盟', 'green');return false">綠黨社會民主黨聯盟</a>
+          </div>
+          <hr>
+          <h2 id="content" class="text-muted">在地圖上滑動或點選以顯示數據</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="map-canvas"></div>
+      </div>
+      <!-- <div id="chart" class="col-xs-6"></div> -->
+    </div>
+    <div id="listNoneCunli"></div>
+    <div style="text-align: center;">
+      <p>Power by Kirk Chen</p>
+      <a href="https://github.com/kiang/TainanDengueMap">網站原始碼</a> |
+      <a href="http://2016.cec.gov.tw/opendata/cec2016/getJson?dataType=7">地理資料來源：中選會開票所 API </a>
+
+      <a href="http://www.cec.gov.tw/zh_TW/T1/n708010600000000.html">選票資料來源：中選會網站 </a>
+      <a href="https://github.com/kiang/TainanDengueMap">程式參考</a> |
+    </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?v=3"></script>
+  <script src="//code.highcharts.com/stock/highstock.js"></script>
+  <script src="//code.highcharts.com/stock/modules/exporting.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/1.1.1/chroma.min.js"></script>
+  <script src="../lib/colorbar.js"></script>
+  <script src="../lib/topojson.js"></script>
+  <script src="js/legislator.js"></script>
+</body>
+
+</html>
